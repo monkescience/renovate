@@ -1,7 +1,7 @@
 module.exports = {
     platform: 'github',
     onboarding: false,
-    requireConfig: false,
+    requireConfig: 'optional',
     repositories: [
         'monkescience/renovate',
         'monkescience/iac',
