@@ -14,6 +14,7 @@ jobs:
         id: generate-token
         uses: actions/create-github-app-token@df432ceedc7162793a195dd1713ff69aefc7379e # v2
         with:
+          owner: monkescience
           app-id: ${{ vars.APP_ID }}
           private-key: ${{ secrets.PRIVATE_KEY }}
 
