@@ -26,4 +26,6 @@ jobs:
           configurationFile: renovate.json
           token: ${{ steps.generate-token.outputs.token }}
         env:
+          RENOVATE_ONBOARDING: false
+          RENOVATE_ALLOW_NO_CONFIG: true
           RENOVATE_REPOSITORIES: 'monkescience/renovate,monkescience/iac,monkescience/reference-service-go'
