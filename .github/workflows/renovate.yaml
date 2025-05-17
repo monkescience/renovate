@@ -23,9 +23,5 @@ jobs:
       - name: Self-hosted Renovate
         uses: renovatebot/github-action@f5c3383cb7cbf7711d8b66b809375b2d5f4e2d1d # v42.0.2
         with:
-          configurationFile: renovate.json
+          configurationFile: renovate-config.js
           token: ${{ steps.generate-token.outputs.token }}
-        env:
-          RENOVATE_ONBOARDING: 'false'
-          RENOVATE_ALLOW_NO_CONFIG: 'true'
-          RENOVATE_REPOSITORIES: 'monkescience/renovate,monkescience/iac,monkescience/reference-service-go'
