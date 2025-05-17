@@ -9,10 +9,5 @@
     ":approveMajorUpdates",
     ":automergeMinor",
     ":semanticCommits"
-  ],
-  "repositories": [
-    "monkescience/renovate",
-    "monkescience/iac",
-    "monkescience/reference-service-go"
   ]
 }
