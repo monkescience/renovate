@@ -27,4 +27,4 @@ jobs:
           configurationFile: renovate-config.js
           token: ${{ steps.generate-token.outputs.token }}
         env:
-          LOG_LEVEL: 'debug'
+          LOG_LEVEL: 'info'
