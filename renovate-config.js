@@ -1,4 +1,5 @@
 module.exports = {
+    $schema: "https://docs.renovatebot.com/renovate-schema.json",
     platform: 'github',
     onboarding: false,
     requireConfig: 'optional',
@@ -7,5 +8,9 @@ module.exports = {
         'monkescience/iac',
         'monkescience/reference-service-go',
     ],
-    extends: ['local>monkescience/renovate'],
+    extends: [
+        'config:best-practices',
+        ':semanticCommits',
+        ':automergeMajor',
+    ],
 };
