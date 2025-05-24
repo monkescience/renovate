@@ -13,4 +13,15 @@ module.exports = {
         ':semanticCommits',
         ':automergeMajor',
     ],
+    packageRules: [
+        {
+            matchDatasources: [
+                "terraform-provider",
+                "terraform-module"
+            ],
+            registryUrls: [
+                "https://registry.opentofu.org"
+            ]
+        }
+    ]
 };
