@@ -7,6 +7,7 @@ module.exports = {
         'monkescience/renovate',
         'monkescience/iac',
         'monkescience/reference-service-go',
+        'monkescience/gitops',
     ],
     extends: [
         'config:best-practices',
@@ -23,5 +24,9 @@ module.exports = {
                 "https://registry.opentofu.org"
             ]
         }
-    ]
+    ],
+    argocd: {
+        "managerFilePatterns": ["/apps/.+\\.yaml$/"],
+        "automerge": false
+    }
 };
