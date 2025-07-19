@@ -9,6 +9,7 @@ module.exports = {
         'monkescience/reference-service-go',
         'monkescience/gitops',
         'monkescience/portage',
+        'monkescience/mirror',
     ],
     extends: [
         'config:best-practices',
