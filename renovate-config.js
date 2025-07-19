@@ -8,6 +8,7 @@ module.exports = {
         'monkescience/iac',
         'monkescience/reference-service-go',
         'monkescience/gitops',
+        'monkescience/portage',
     ],
     extends: [
         'config:best-practices',
