@@ -29,6 +29,6 @@ module.exports = {
     ],
     argocd: {
         "managerFilePatterns": ["/apps/.+\\.yaml$/"],
-        "automerge": false
+        "automerge": true
     }
 };
