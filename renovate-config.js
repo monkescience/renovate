@@ -6,7 +6,7 @@ module.exports = {
     repositories: [
         'monkescience/renovate',
         'monkescience/iac',
-        'monkescience/reference-service-go',
+        'monkescience/phasor',
         'monkescience/gitops',
         'monkescience/portage',
         'monkescience/mirror',
