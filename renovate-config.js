@@ -16,6 +16,7 @@ module.exports = {
         ':semanticCommits',
         ':automergeMajor',
     ],
+    minimumReleaseAge: '14 days',
     packageRules: [
         {
             matchDatasources: [
