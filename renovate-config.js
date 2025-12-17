@@ -8,6 +8,8 @@ module.exports = {
         'monkescience/iac',
         'monkescience/phasor',
         'monkescience/gitops',
+        'monkescience/vital',
+        'monkescience/testastic'
     ],
     extends: [
         'config:best-practices',
