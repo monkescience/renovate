@@ -9,6 +9,7 @@ module.exports = {
         'monkescience/phasor',
         'monkescience/gitops',
         'monkescience/gitops-local',
+        'monkescience/gitops-mixin',
         'monkescience/vital',
         'monkescience/testastic',
     ],
