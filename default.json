@@ -6,6 +6,15 @@
     ":automergeMajor"
   ],
   "minimumReleaseAge": "14 days",
+  "customManagers": [
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["^\\.github/workflows/.*\\.ya?ml$"],
+      "matchStrings": [
+        "[A-Z0-9_]+:\\s*(?<currentValue>v?[^\\s#]+)\\s*#\\s*renovate:\\s*datasource=(?<datasource>[^\\s]+)\\s+depName=(?<depName>[^\\s]+)"
+      ]
+    }
+  ],
   "packageRules": [
     {
       "matchDatasources": ["terraform-provider", "terraform-module"],
