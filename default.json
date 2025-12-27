@@ -5,6 +5,7 @@
     ":semanticCommits",
     ":automergeMajor"
   ],
+  "platformAutomerge": true,
   "minimumReleaseAge": "14 days",
   "customManagers": [
     {
