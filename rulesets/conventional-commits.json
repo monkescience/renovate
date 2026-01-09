@@ -1,0 +1,25 @@
+{
+  "name": "conventional-commits",
+  "target": "branch",
+  "enforcement": "active",
+  "conditions": {
+    "ref_name": {
+      "exclude": [],
+      "include": [
+        "~ALL"
+      ]
+    }
+  },
+  "rules": [
+    {
+      "type": "commit_message_pattern",
+      "parameters": {
+        "operator": "regex",
+        "pattern": "^(build|chore|ci|docs|feat|fix|perf|refactor|revert|style|test)(\\([a-z0-9-]+\\))?!?:\\s.+$",
+        "negate": false,
+        "name": "Conventional Commits"
+      }
+    }
+  ],
+  "bypass_actors": []
+}
