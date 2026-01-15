@@ -22,6 +22,18 @@ on:
   schedule:
     - cron: '0 6 * * 5' # Every Friday at 6:00 AM UTC
   workflow_dispatch:
+    inputs:
+      log_level:
+        description: Log level
+        default: info
+        type: choice
+        options:
+          - info
+          - debug
+          - trace
+          - warn
+          - error
+          - fatal
 
 jobs:
   renovate:
@@ -36,12 +48,12 @@ jobs:
           private-key: ${{ secrets.RENOVATE_APP_PRIVATE_KEY }}
 
       - name: Renovate
-        uses: renovatebot/github-action@822441559e94f98b67b82d97ab89fe3003b0a247 # v44.2.0
+        uses: renovatebot/github-action@f7fad228a053c69a98e24f8e4f6cf40db8f61e08 # v44.2.1
         with:
           token: ${{ steps.generate-token.outputs.token }}
         env:
           RENOVATE_REPOSITORIES: ${{ github.repository }}
-          LOG_LEVEL: info
+          LOG_LEVEL: ${{ inputs.log_level || 'info' }}
 ```
 
 ## Required Configuration
