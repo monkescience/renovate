@@ -6,6 +6,7 @@
     ":automergeMajor"
   ],
   "platformAutomerge": true,
+  "prHourlyLimit": 0,
   "minimumReleaseAge": "14 days",
   "customManagers": [
     {
