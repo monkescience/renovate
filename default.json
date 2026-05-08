@@ -32,8 +32,7 @@
     },
     {
       "matchDepNames": ["hashicorp/terraform"],
-      "replacementName": "opentofu/opentofu",
-      "extractVersion": "^v(?<version>.+)$"
+      "enabled": false
     }
   ],
   "argocd": {
