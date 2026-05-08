@@ -15,12 +15,25 @@
       "matchStrings": [
         "[A-Z0-9_]+:\\s*(?<currentValue>v?[^\\s#]+)\\s*#\\s*renovate:\\s*datasource=(?<datasource>[^\\s]+)\\s+depName=(?<depName>[^\\s]+)"
       ]
+    },
+    {
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)\\.opentofu-version$/"],
+      "matchStrings": ["(?<currentValue>.+)"],
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "opentofu/opentofu",
+      "extractVersionTemplate": "^v(?<version>.+)$"
     }
   ],
   "packageRules": [
     {
       "matchDatasources": ["terraform-provider", "terraform-module"],
       "registryUrls": ["https://registry.opentofu.org"]
+    },
+    {
+      "matchDepNames": ["hashicorp/terraform"],
+      "replacementName": "opentofu/opentofu",
+      "extractVersion": "^v(?<version>.+)$"
     }
   ],
   "argocd": {
