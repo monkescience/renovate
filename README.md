@@ -70,7 +70,7 @@ Configure these at the organization level (Settings > Secrets and variables > Ac
 The shared preset in [default.json](default.json) includes:
 
 - **Semantic commits** - PRs use conventional commit format
-- **Auto-merge major updates** - Major version updates are auto-merged
+- **Auto-merge minor updates** - Minor and patch updates are auto-merged; major updates require manual review
 - **14-day minimum release age** - Updates wait 14 days before being proposed
 - **OpenTofu registry** - Terraform providers/modules use the OpenTofu registry
 - **Argo CD support** - Scans Argo CD Application manifests for image updates

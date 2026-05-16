@@ -3,7 +3,7 @@
   "extends": [
     "config:best-practices",
     ":semanticCommits",
-    ":automergeMajor"
+    ":automergeMinor"
   ],
   "platformAutomerge": true,
   "prHourlyLimit": 0,
