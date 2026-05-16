@@ -7,7 +7,7 @@
   ],
   "platformAutomerge": true,
   "prHourlyLimit": 0,
-  "minimumReleaseAge": "14 days",
+  "minimumReleaseAge": "6 days",
   "customManagers": [
     {
       "customType": "regex",
