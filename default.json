@@ -8,6 +8,7 @@
   "platformAutomerge": true,
   "prHourlyLimit": 0,
   "minimumReleaseAge": "6 days",
+  "postUpdateOptions": ["gomodTidy"],
   "customManagers": [
     {
       "customType": "regex",
