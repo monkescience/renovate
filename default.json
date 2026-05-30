@@ -8,7 +8,8 @@
   "platformAutomerge": true,
   "prHourlyLimit": 0,
   "minimumReleaseAge": "6 days",
-  "postUpdateOptions": ["gomodTidy"],
+  "osvVulnerabilityAlerts": true,
+  "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
   "customManagers": [
     {
       "customType": "regex",
