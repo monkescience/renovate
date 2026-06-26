@@ -1,0 +1,38 @@
+name: Renovate
+
+on:
+  schedule:
+    - cron: '0 6 * * 5' # Every Friday at 6:00 AM UTC
+  workflow_dispatch:
+    inputs:
+      log_level:
+        description: Log level
+        default: info
+        type: choice
+        options:
+          - info
+          - debug
+          - trace
+          - warn
+          - error
+          - fatal
+
+jobs:
+  renovate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate GitHub App token
+        id: generate-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3
+        with:
+          owner: ${{ github.repository_owner }}
+          client-id: ${{ vars.RENOVATE_APP_ID }}
+          private-key: ${{ secrets.RENOVATE_APP_PRIVATE_KEY }}
+
+      - name: Renovate
+        uses: renovatebot/github-action@8217b3fc286df088d7c27f3255fe8414463bc0fd # v46.1.15
+        with:
+          token: ${{ steps.generate-token.outputs.token }}
+        env:
+          RENOVATE_REPOSITORIES: ${{ github.repository }}
+          LOG_LEVEL: ${{ inputs.log_level || 'info' }}
