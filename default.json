@@ -8,7 +8,11 @@
   "platformAutomerge": true,
   "prHourlyLimit": 0,
   "minimumReleaseAge": "6 days",
+  "addLabels": ["renovate"],
   "osvVulnerabilityAlerts": true,
+  "vulnerabilityAlerts": {
+    "labels": ["security"]
+  },
   "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
   "customManagers": [
     {
