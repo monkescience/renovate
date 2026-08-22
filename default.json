@@ -39,6 +39,10 @@
     {
       "matchDepNames": ["hashicorp/terraform"],
       "enabled": false
+    },
+    {
+      "matchPackageNames": ["ghcr.io/monkescience/yeet"],
+      "minimumReleaseAge": null
     }
   ],
   "argocd": {
