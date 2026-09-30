@@ -15,6 +15,9 @@
     "labels": ["security"]
   },
   "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
+  "lockFileMaintenance": {
+    "schedule": ["* 6-9 * * 5"]
+  },
   "customManagers": [
     {
       "customType": "regex",
@@ -54,6 +57,6 @@
     }
   ],
   "argocd": {
-    "fileMatch": ["apps/.+\\.yaml$"]
+    "managerFilePatterns": ["/apps/.+\\.yaml$/"]
   }
 }
