@@ -80,18 +80,11 @@ The shared preset in [default.json](default.json) includes:
 - **Grouped tool updates** - golangci-lint and goreleaser updates from mise and workflow variables land in one PR per tool
 - **OpenTofu registry** - Terraform providers/modules use the OpenTofu registry
 - **Argo CD support** - Scans Argo CD Application manifests for image updates
-- **Workflow variables** - Updates variables with inline renovate comments
+- **Version comments** - Updates `_VERSION` variables in workflows and Makefiles that carry a `# renovate:` comment
 
-## Inline Version Comments
+## Version Comments
 
-The preset includes a custom regex manager for GitHub workflow variables and Makefiles. Add a `# renovate:` comment after the value:
-
-```yaml
-env:
-  HELM_VERSION: v3.19.0 # renovate: datasource=github-releases depName=helm/helm
-```
-
-Repositories that migrated to Renovate's built-in [`customManagers` presets](https://docs.renovatebot.com/presets-customManagers/) put the comment on the line above a `_VERSION` variable instead and extend `customManagers:githubActionsVersions` and `customManagers:makefileVersions` in their own `renovate.json`:
+The preset extends Renovate's built-in [`customManagers:githubActionsVersions` and `customManagers:makefileVersions`](https://docs.renovatebot.com/presets-customManagers/) presets. Put a `# renovate:` comment on the line above a variable whose name ends in `_VERSION`:
 
 ```yaml
 env:
@@ -99,4 +92,9 @@ env:
   HELM_VERSION: v3.19.0
 ```
 
-Do not mix both styles in one file. The built-in presets misread consecutive inline comments.
+```makefile
+# renovate: datasource=go depName=github.com/vladopajic/go-test-coverage/v2
+GO_TEST_COVERAGE_VERSION := v2.20.0
+```
+
+Inline comments after the value (`HELM_VERSION: v3.19.0 # renovate: ...`) are not supported and get paired with the wrong variable.

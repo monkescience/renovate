@@ -5,7 +5,9 @@
     "security:gomodIndirectSecurityUpdates",
     ":semanticCommits",
     ":automergeStableNonMajor",
-    ":automergeDigest"
+    ":automergeDigest",
+    "customManagers:githubActionsVersions",
+    "customManagers:makefileVersions"
   ],
   "platformAutomerge": true,
   "prHourlyLimit": 0,
@@ -22,20 +24,6 @@
     "minimumReleaseAge": null
   },
   "customManagers": [
-    {
-      "customType": "regex",
-      "managerFilePatterns": ["/^\\.github/workflows/.*\\.ya?ml$/"],
-      "matchStrings": [
-        "[A-Z0-9_]+:[ \\t]*(?<currentValue>v?[^\\s#]+)[ \\t]*#[ \\t]*renovate:[ \\t]*datasource=(?<datasource>[^\\s]+)[ \\t]+depName=(?<depName>[^\\s]+)"
-      ]
-    },
-    {
-      "customType": "regex",
-      "managerFilePatterns": ["/(^|/)Makefile$/"],
-      "matchStrings": [
-        "[A-Z0-9_]+[ \\t]*:?=[ \\t]*\"?(?<currentValue>v?[^\\s\"#]+)\"?[ \\t]*#[ \\t]*renovate:[ \\t]*datasource=(?<datasource>[^\\s]+)[ \\t]+depName=(?<depName>[^\\s]+)"
-      ]
-    },
     {
       "customType": "regex",
       "managerFilePatterns": ["/(^|/)\\.opentofu-version$/"],
