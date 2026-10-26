@@ -55,6 +55,11 @@
       "minimumReleaseAgeBehaviour": "timestamp-optional"
     },
     {
+      "matchPackageNames": ["ghcr.io/aquasecurity/trivy"],
+      "minimumReleaseAgeBehaviour": "timestamp-optional",
+      "automerge": false
+    },
+    {
       "matchDepNames": ["golangci-lint", "golangci/golangci-lint"],
       "groupName": "golangci-lint"
     },

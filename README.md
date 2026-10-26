@@ -76,6 +76,7 @@ The shared preset in [default.json](default.json) includes:
 - **Auto-merge non-major updates** - Minor and patch updates of stable (>= 1.0) packages, digest, pin, and lock file maintenance updates are auto-merged. Major updates and all 0.x version updates require manual review
 - **6-day minimum release age** - Updates wait 6 days before being proposed. Security fixes and lock file maintenance skip the wait
 - **Trusted registries without release timestamps** - Updates for `ghcr.io/monkescience/**`, `cgr.dev/chainguard/**`, and `gcr.io/distroless/**` are proposed without a release age check, since these registries do not report publish dates
+- **Manual review without release timestamps** - `ghcr.io/aquasecurity/trivy` reports no publish dates either. Its PRs open right away but are never auto-merged
 - **Lock file maintenance** - Runs on every Renovate run
 - **Grouped tool updates** - golangci-lint and goreleaser updates from mise and workflow variables land in one PR per tool
 - **OpenTofu registry** - Terraform providers/modules use the OpenTofu registry
