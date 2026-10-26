@@ -53,8 +53,12 @@
       "enabled": false
     },
     {
-      "matchPackageNames": ["ghcr.io/monkescience/yeet"],
-      "minimumReleaseAge": null
+      "matchPackageNames": [
+        "ghcr.io/monkescience/**",
+        "cgr.dev/chainguard/**",
+        "gcr.io/distroless/**"
+      ],
+      "minimumReleaseAgeBehaviour": "timestamp-optional"
     }
   ],
   "argocd": {
