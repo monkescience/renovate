@@ -4,7 +4,7 @@
     "config:best-practices",
     "security:gomodIndirectSecurityUpdates",
     ":semanticCommits",
-    ":automergeMinor",
+    ":automergeStableNonMajor",
     ":automergeDigest"
   ],
   "platformAutomerge": true,
@@ -17,21 +17,23 @@
   },
   "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
   "lockFileMaintenance": {
-    "schedule": ["* 6-9 * * 5"]
+    "schedule": ["at any time"],
+    "automerge": true,
+    "minimumReleaseAge": null
   },
   "customManagers": [
     {
       "customType": "regex",
       "managerFilePatterns": ["/^\\.github/workflows/.*\\.ya?ml$/"],
       "matchStrings": [
-        "[A-Z0-9_]+:\\s*(?<currentValue>v?[^\\s#]+)\\s*#\\s*renovate:\\s*datasource=(?<datasource>[^\\s]+)\\s+depName=(?<depName>[^\\s]+)"
+        "[A-Z0-9_]+:[ \\t]*(?<currentValue>v?[^\\s#]+)[ \\t]*#[ \\t]*renovate:[ \\t]*datasource=(?<datasource>[^\\s]+)[ \\t]+depName=(?<depName>[^\\s]+)"
       ]
     },
     {
       "customType": "regex",
       "managerFilePatterns": ["/(^|/)Makefile$/"],
       "matchStrings": [
-        "[A-Z0-9_]+\\s*:?=\\s*\"?(?<currentValue>v?[^\\s\"#]+)\"?\\s*#\\s*renovate:\\s*datasource=(?<datasource>[^\\s]+)\\s+depName=(?<depName>[^\\s]+)"
+        "[A-Z0-9_]+[ \\t]*:?=[ \\t]*\"?(?<currentValue>v?[^\\s\"#]+)\"?[ \\t]*#[ \\t]*renovate:[ \\t]*datasource=(?<datasource>[^\\s]+)[ \\t]+depName=(?<depName>[^\\s]+)"
       ]
     },
     {
@@ -44,6 +46,10 @@
     }
   ],
   "packageRules": [
+    {
+      "matchUpdateTypes": ["pin", "pinDigest"],
+      "automerge": true
+    },
     {
       "matchDatasources": ["terraform-provider", "terraform-module"],
       "registryUrls": ["https://registry.opentofu.org"]
@@ -59,6 +65,14 @@
         "gcr.io/distroless/**"
       ],
       "minimumReleaseAgeBehaviour": "timestamp-optional"
+    },
+    {
+      "matchDepNames": ["golangci-lint", "golangci/golangci-lint"],
+      "groupName": "golangci-lint"
+    },
+    {
+      "matchDepNames": ["goreleaser", "goreleaser/goreleaser"],
+      "groupName": "goreleaser"
     }
   ],
   "argocd": {
