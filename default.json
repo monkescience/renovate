@@ -55,7 +55,20 @@
       "minimumReleaseAgeBehaviour": "timestamp-optional"
     },
     {
-      "matchPackageNames": ["ghcr.io/aquasecurity/trivy"],
+      "matchDatasources": ["docker"],
+      "matchPackageNames": [
+        "ghcr.io/**",
+        "quay.io/**",
+        "gcr.io/**",
+        "registry.k8s.io/**",
+        "!ghcr.io/monkescience/**",
+        "!gcr.io/distroless/**"
+      ],
+      "minimumReleaseAgeBehaviour": "timestamp-optional",
+      "automerge": false
+    },
+    {
+      "matchDatasources": ["git-tags"],
       "minimumReleaseAgeBehaviour": "timestamp-optional",
       "automerge": false
     },
